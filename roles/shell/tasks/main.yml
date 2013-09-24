@@ -1,0 +1,16 @@
+---
+
+- name: install zsh
+  apt: pkg=zsh state=latest update_cache=yes
+
+- name: install ohmyzsh
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/$user/.oh-my-zsh
+
+- name: copy aliases
+  copy: src=.zsh_aliases dest=/home/$user/ owner=$user
+
+- name: copy zshrc
+  copy: src=.zshrc dest=/home/$user/.zshrc owner=$user
+
+- name: set zsh shell for $user
+  user: name=$user shell=/bin/zsh
