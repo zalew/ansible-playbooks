@@ -1,0 +1,26 @@
+[user]
+    name = {{ git_user_name }}
+    email = {{ git_user_email }}
+[alias]
+	co = checkout
+	br = branch
+	cb = checkout -b
+	ci = commit
+	st = status
+	staged = diff --staged
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	log-graph = log --all --graph --decorate
+	log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
+	log-timeline = log --format='%h %an %ar - %s'
+	log-local = log --oneline origin..HEAD
+	log-fetched = log --oneline HEAD..origin/master
+	heads = !"git log origin/master.. --format='%Cred%h%Creset;%C(yellow)%an%Creset;%H;%Cblue%f%Creset' | git name-rev --stdin --always --name-only | column -t -s';'"
+	fix = commit --amend -C HEAD
+[color]
+	ui = auto
+[push]
+	default = matching
+[help]
+	autocorrect = 1
