@@ -1,6 +1,6 @@
 ---
 
-- name: install version control software
+- name: VCS | install version control software
   apt: pkg=$item state=latest update_cache=yes
   with_items:
   - git
@@ -10,9 +10,9 @@
   - subversion-tools
   - bzr
 
-- name: copy git completion
+- name: VCS | copy git completion
   copy: src=.git-completion.sh dest=/home/$user/ owner=$user mode=0664
 
-- name: copy git config
+- name: VCS | copy git config
   template: src=.gitconfig dest=/home/$user/.gitconfig owner=$user
 

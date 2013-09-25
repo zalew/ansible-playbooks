@@ -1,5 +1,5 @@
 ---
-- name: install python packages
+- name: Python | install common python packages
   apt: pkg=$item state=installed
   with_items:
     - python
